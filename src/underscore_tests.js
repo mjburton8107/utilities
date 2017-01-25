@@ -54,8 +54,8 @@ var _ = { };
     for (var i = 0; i < array.length; i++){
       if(array[i] === target){
         return i;
-      } 
-    }
+      }
+    } return -1
   };
 
   // Return all elements of an array that pass a truth test ('iterator' function argument)
