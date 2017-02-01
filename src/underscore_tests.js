@@ -38,14 +38,10 @@ var _ = { };
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
 
-  // var iterator = function(value, key, collection){
-  //   for (var i = 0; i < collection.length; i++){
-  //     return [collection[i], collection[i], collection]
-  //   }
-  // }
-
   _.each = function(collection, iterator) {
-      iterator(collection);
+      for (var key in collection){
+        iterator(collection[key], key, collection);
+      }
     };
 
   // Returns the index at which value can be found in the array, or -1 if value
@@ -59,7 +55,12 @@ var _ = { };
   };
 
   // Return all elements of an array that pass a truth test ('iterator' function argument)
+  var iterator = function(){
+
+  }
+
   _.filter = function(collection, iterator) {
+
   };
 
   // Return all elements of an array that don't pass a truth test (the 'iterator' function argument)
@@ -116,6 +117,7 @@ var _ = { };
   // Extend a given object with all the properties of the passed in
   // object(s).
   _.extend = function(obj) {
+    this.obj = obj;
   };
 
   // Like extend, but doesn't ever overwrite a key that already
