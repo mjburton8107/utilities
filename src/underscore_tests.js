@@ -111,9 +111,11 @@ var _ = { };
   // Calls the method named by methodName on each value in the list.
   _.invoke = function(list, methodName, args) {
     for (var i = 0; i < list.length; i++){
-      list[i][methodName]();
-    } return list;
-  };
+       if(typeof methodName === 'function'){
+         methodName.call(list[i]);
+       } else list[i][methodName]();
+  } return list;
+}
 
   // Reduces an array or object to a single value by repetitively calling
   // iterator(previousValue, item) for each item. previousValue should be
