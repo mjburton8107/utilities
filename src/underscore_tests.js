@@ -55,31 +55,57 @@ var _ = { };
   };
 
   // Return all elements of an array that pass a truth test ('iterator' function argument)
-  var iterator = function(){
-
-  }
 
   _.filter = function(collection, iterator) {
-
+    var newArray = [];
+    for (var i = 0; i < collection.length; i++){
+      if(iterator(collection[i]) === true){
+         newArray.push(collection[i]);
+      }
+    } return newArray;
   };
 
   // Return all elements of an array that don't pass a truth test (the 'iterator' function argument)
   _.reject = function(collection, iterator) {
+      var newArray = [];
+      for (var i = 0; i < collection.length; i++){
+        if(iterator(collection[i]) !== true){
+          newArray.push(collection[i]);
+        }
+      } return newArray;
   };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var newArray = [];
+    for (var i = 0; i < array.length; i++){
+      if(newArray.indexOf(array[i]) === -1){
+        newArray.push(array[i]);
+      }
+    } return newArray;
   };
 
 
   // Return the results of applying an iterator to each element.
   _.map = function(array, iterator) {
+    var newArray = [];
+    for (var i = 0; i < array.length; i++){
+       newArray.push(iterator(array[i]));
+    } return newArray;
   };
 
   // Takes an array of objects and returns and array of the values of
   // a certain property in it. E.g. take an array of people and return
   // an array of just their ages
   _.pluck = function(array, propertyName) {
+    var newArray = [];
+    for (var i = 0; i < array.length; i++){
+      for (var key in array[i]){
+        if(key === propertyName){
+          newArray.push(array[i][propertyName]);
+        }
+      }
+    } return newArray;
   };
 
   // Calls the method named by methodName on each value in the list.
